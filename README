@@ -1,1 +1,5 @@
-This is a git repo
+Po uruchomieniu w konsoli można wpisać:
+- równanie w ONP, którego ma zostać policzony wynik
+- równanie w normalnym zapisie, które ma zostać przetworzone na zapis ONP.
+
+Program sam rozpoznaje czy zostało wprowadzone równanie w ONP i ma podać wynik tego równania, czy też podane w infix i ma zamienić równanie na ONP.

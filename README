@@ -1,5 +1,7 @@
 Po uruchomieniu w konsoli można wpisać:
 - równanie w ONP, którego ma zostać policzony wynik
 - równanie w normalnym zapisie, które ma zostać przetworzone na zapis ONP.
+Przy zapisie należy liczby/znaki oddzielać spacją, np:
+( 1 + 3 ) * ( 2 + 4 )
 
 Program sam rozpoznaje czy zostało wprowadzone równanie w ONP i ma podać wynik tego równania, czy też podane w infix i ma zamienić równanie na ONP.

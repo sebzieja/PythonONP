@@ -88,9 +88,12 @@ def makeCalculation(tokens):
 			return infixToRPN(tokens)
 
 
+#tokens = raw_input.split(" ")
+#makeCalculation(tokens)
 
 import unittest
 
+"""Klasa wykonujaca testy calego programu i poprawnosci algorytmu"""
 class TestONP(unittest.TestCase):
 	def setUp(self):
 		self.r1 = "2 3 + 4 *".split(" ")

@@ -5,3 +5,12 @@ Przy zapisie należy liczby/znaki oddzielać spacją, np:
 ( 1 + 3 ) * ( 2 + 4 )
 
 Program sam rozpoznaje czy zostało wprowadzone równanie w ONP i ma podać wynik tego równania, czy też podane w infix i ma zamienić równanie na ONP.
+
+
+CHANGELOG:
+
+15.02.17
+
+Poprawiono problem przy obliczaniu wyniku z zapisu ONP - problem z potęgami.
+Dodano testy, obsługujące wszystkie operatory jak i wartości ujemne.
+Poprawiono komentarze na docstringi.

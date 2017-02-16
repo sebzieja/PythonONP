@@ -9,6 +9,11 @@ Program sam rozpoznaje czy zostało wprowadzone równanie w ONP i ma podać wyni
 
 CHANGELOG:
 
+16.02.17
+
+Dodano dokumentację
+Poprawiono drobne literówki.
+
 15.02.17
 
 Poprawiono problem przy obliczaniu wyniku z zapisu ONP - problem z potęgami.

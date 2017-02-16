@@ -1,7 +1,6 @@
 #-*- coding: utf-8 -*-
 
 """Opisuja łączność argumentów - niektóre są prawo, niektóre lewostronnie łączne"""
-
 leftAssociative = 0
 rightAssociative = 1
 
@@ -13,26 +12,29 @@ OPERATORS = {
 	'/' : (1, leftAssociative, lambda x,y: y/x),
 	'^' : (2, rightAssociative, lambda x,y: y**x)
 }
-"""Zwraca true jeśli znak jest operatorem, false jeśli nie jest"""
+
 def isOperator(token):
+	"""Zwraca true jeśli znak jest operatorem, false jeśli nie jest."""
 	return token in OPERATORS.keys()
 
-"""Zwraca true jeśli operator ma łączność podaną w wywołaniu funkcji"""
+
 def cmpAssociative(token, associative):
+	"""Zwraca true jeśli operator ma łączność podaną w wywołaniu funkcji."""
 	if not isOperator(token):
 		raise VauleError("Bledny operator: %s" % token)
 	return OPERATORS[token][1] == associative
 
-"""Zwraca liczbę >0 gdy operator 1 ma większy priorytet, 0 gdy są o takim samym priorytecie, 
-<0 gdy 1 operator jest o mniejszym priorytecie"""
+
 def cmpPrecedence(token1, token2):
+	"""Zwraca liczbę >0 gdy operator 1 ma większy priorytet, 0 gdy są o takim samym priorytecie, 
+	<0 gdy 1 operator jest o mniejszym priorytecie."""
 	if not isOperator(token1) or not isOperator(token2):
 		raise ValueError("Bledne operatory: %s %s" % (token1, token2))
 	return OPERATORS[token1][0] - OPERATORS[token2][0]
 
-"""funkcja zwracająca rownanie w ONP"""
 def infixToRPN(tokens):
-
+	"""Funkcja zwracająca rownanie w ONP."""
+	
 	stack=[]
 	output=[]
 
@@ -60,8 +62,9 @@ def infixToRPN(tokens):
 	#zwraca str z wynikiem
 	return " ".join(output)
 
-"""funkcja zwracajaca wynik wyrazenia ONP"""
+
 def calcRPN(tokens):
+	"""Funkcja zwracajaca wynik wyrazenia ONP."""
 
 	stack=[]
 
@@ -72,10 +75,11 @@ def calcRPN(tokens):
 			stack.append(float(token))
 	return stack.pop()
 
-"""funkcja ktora rozpoznaje czy zostalo wpisane rownanie w 
-zapisie ONP, czy w zwyklym, ktore ma zostac zamienione na ONP
-"""
+
 def makeCalculation(tokens):
+	"""Funkcja ktora rozpoznaje czy zostalo wpisane rownanie w 
+	zapisie ONP, czy w zwyklym, ktore ma zostac zamienione na ONP.
+	"""
 
 	#tworzy liste taka jak tokens, tylko nie zawierajaca nawiasow
 	temp=[y for y in tokens if (y != "(" and y != ")")]
@@ -88,13 +92,13 @@ def makeCalculation(tokens):
 			return infixToRPN(tokens)
 
 
-#tokens = raw_input.split(" ")
-#makeCalculation(tokens)
+tokens = raw_input().split(" ")
+print makeCalculation(tokens)
 
 import unittest
 
-"""Klasa wykonujaca testy calego programu i poprawnosci algorytmu"""
 class TestONP(unittest.TestCase):
+	"""Klasa wykonujaca testy calego programu i poprawnosci algorytmu."""
 	def setUp(self):
 		self.r1 = "2 3 + 4 *".split(" ")
 		self.r2 = "( 1 + 2 ) * ( 3 + 3 )".split(" ")
